@@ -49,6 +49,7 @@ public class CycleCounter implements OperatorInterface {
 
         if(timestampMillis <= lastEvent + minDuration) {
             //Last event not finished
+            System.out.println("Skipping value: last event unfinished");
             return;
         }
 
@@ -56,9 +57,11 @@ public class CycleCounter implements OperatorInterface {
 
         if(value < threshold) {
             //threshold not met
+            System.out.println("Skipping value: threshold not met");
             return;
         }
 
+        System.out.println("Adding event with timestamp: " + timestampMillis);
         events.add(timestampMillis);
         lastEvent = timestampMillis;
 
@@ -78,6 +81,8 @@ public class CycleCounter implements OperatorInterface {
         long tsEODl = DateParser.parseDateMills(tsEOD);
         long tsEOMl = DateParser.parseDateMills(tsEOM);
 
+        System.out.println("Events before filtering: " + events.size());
+
         events.removeIf(l -> l < tsSOYl); //Remove all events older than this year
 
         //Iterate over list and count
@@ -88,6 +93,11 @@ public class CycleCounter implements OperatorInterface {
             if(l > tsSOMl && l < tsEOMl)
                 monthCounter++;
         }
+
+        System.out.println("Values:" +
+                "\tDayCounter: " + dayCounter +
+                "\tMonthCounter: "+ monthCounter +
+                "\tYearCounter: " + yearCounter);
 
         message.output("DayCounter", dayCounter);
         message.output("DayTimestamp", tsEOD);
