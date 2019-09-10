@@ -15,11 +15,11 @@ and the minimum duration to the time your machine needs to make it.
 ## Outputs
 
 * DayTimestamp (string): String representation of the timestamp of the end of the current day
-* DayCount (int): Number of cycles detected this day 
+* DayCount (float): Number of cycles detected this day 
 * MonthTimestamp (string): String representation of the timestamp of the end of the current month
-* MonthCount (int): Number of cycles detected this month 
+* MonthCount (float): Number of cycles detected this month 
 * YearTimestamp (string): String representation of the timestamp of the end of the current year
-* YearCount (int): Number of cycles detected this year
+* YearCount (float): Number of cycles detected this year
 
 ## Configs
 

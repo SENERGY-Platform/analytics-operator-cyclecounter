@@ -89,7 +89,7 @@ public class CycleCounter implements OperatorInterface {
         events.removeIf(l -> l < tsSOYl); //Remove all events older than this year
 
         //Iterate over list and count
-        long dayCounter = 0, monthCounter = 0, yearCounter = events.size();
+        double dayCounter = 0, monthCounter = 0, yearCounter = events.size();
         for(long l : events){
             if(l > tsSODl && l < tsEODl)
                 dayCounter++;
