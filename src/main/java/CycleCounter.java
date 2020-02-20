@@ -37,7 +37,7 @@ public class CycleCounter implements OperatorInterface {
         Config config = new Config();
         threshold = Double.parseDouble(config.getConfigValue("Threshold", "-1"));
         System.out.println("threshold set to: " + threshold);
-        minDuration = Long.parseLong(config.getConfigValue("MinDuration", "0"));
+        minDuration = Long.parseLong(config.getConfigValue("minDuration", "0"));
         System.out.println("minDuration set to:" + minDuration);
         String configTimezone = config.getConfigValue("Timezone", "+02");
         System.out.println("timezone read as: " + configTimezone);
